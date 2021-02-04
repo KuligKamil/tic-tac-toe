@@ -12,4 +12,4 @@ repos:
     rev: ''  # Use the sha / tag you want to point at
     hooks:
     -   id: mypy
-        args: [--check-untyped-defs, --disallow-untyped-defs, --ignore_missing_imports]
+        args: [--check-untyped-defs, --disallow-untyped-defs]
