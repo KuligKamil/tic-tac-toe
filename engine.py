@@ -29,6 +29,10 @@ def show_board(board: List) -> None:
     print()
 
 
+def is_over(board: List[str], done_move: int, sign: str) -> bool:
+    return True
+
+
 if __name__ == "__main__":
     show_board([" " for _ in range(BOARD_SIZE)])
     show_board(["X" for _ in range(BOARD_SIZE)])
