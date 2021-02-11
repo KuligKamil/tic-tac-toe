@@ -4,7 +4,7 @@ from typing import List
 NUMBER_TO_WIN = 3
 # min 3
 # BOARD_SIZE = 9
-BOARD_SIZE = 25
+BOARD_SIZE = 16
 # BOARD_SIZE = 100
 # BOARD_SIZE = 900
 ROW_SIZE = int(math.sqrt(BOARD_SIZE))
@@ -30,9 +30,11 @@ def show_board(board: List) -> None:
 
 
 def is_over(board: List[str], done_move: int, sign: str) -> bool:
-    if sign * NUMBER_TO_WIN in ''.join(board):
-        print(str(board))
-        return True
+    start, end = 0, ROW_SIZE - 1
+    while end <= (BOARD_SIZE - 1):
+        if sign * NUMBER_TO_WIN in ''.join(board[start:end]):
+            return True
+        start, end = start + ROW_SIZE, end + ROW_SIZE
     return False
 
 
