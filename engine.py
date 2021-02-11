@@ -30,7 +30,10 @@ def show_board(board: List) -> None:
 
 
 def is_over(board: List[str], done_move: int, sign: str) -> bool:
-    return True
+    if sign * NUMBER_TO_WIN in ''.join(board):
+        print(str(board))
+        return True
+    return False
 
 
 if __name__ == "__main__":
