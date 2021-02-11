@@ -1,15 +1,16 @@
 repos:
-#-   repo: https://github.com/ambv/black
-#    rev: stable
-#    hooks:
-#    - id: black
-#      language_version: python3.9.1
--   repo: https://gitlab.com/pycqa/flake8
+  #-   repo: https://github.com/ambv/black
+  #    rev: stable
+  #    hooks:
+  #    - id: black
+  #      language_version: python3.9.1
+  - repo: https://gitlab.com/pycqa/flake8
     rev: 3.7.9
     hooks:
-    - id: flake8
--   repo: https://github.com/pre-commit/mirrors-mypy
+      - id: flake8
+        args: ['--ignore=E203', '--max-line-length=99d-def']
+  - repo: https://github.com/pre-commit/mirrors-mypy
     rev: ''  # Use the sha / tag you want to point at
     hooks:
-    -   id: mypy
-        args: [--check-untyped-defs, --disallow-untyped-defs, --ignore=E203, --max-line-length 99 ]
+      - id: mypy
+        args: [--check-untyped-defs, --disallow-untyped-defs ]
