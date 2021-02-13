@@ -32,8 +32,9 @@ def show_board(board: List) -> None:
 def is_over(board: List[str], done_move: int, sign: str) -> bool:
     start, end = 0, ROW_SIZE
     while end <= (BOARD_SIZE - 1):
-        if sign * NUMBER_TO_WIN in ''.join(board[start:end]):
-            return True
+        if done_move in range(start, end):
+            if sign * NUMBER_TO_WIN in ''.join(board[start:end]):
+                return True
         start, end = start + ROW_SIZE, end + ROW_SIZE
     start, end = 0, 0
     while end <= ROW_SIZE:
