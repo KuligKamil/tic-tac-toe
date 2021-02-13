@@ -4,7 +4,10 @@ from typing import List
 NUMBER_TO_WIN = 3
 # min 3
 # BOARD_SIZE = 9
+DIAGONAL_NUMBER = 1
+RANGE_DIAGONAL = range(-DIAGONAL_NUMBER, DIAGONAL_NUMBER + 1)
 BOARD_SIZE = 16
+
 # BOARD_SIZE = 100
 # BOARD_SIZE = 900
 ROW_SIZE = int(math.sqrt(BOARD_SIZE))
@@ -42,6 +45,17 @@ def is_over(board: List[str], done_move: int, sign: str) -> bool:
             if sign * NUMBER_TO_WIN in ''.join(board[start:BOARD_SIZE:ROW_SIZE]):
                 return True
         start, end = start + 1, end + 1
+    for diagonal in RANGE_DIAGONAL:
+        check_range, board_range = [], []
+        for x in range(ROW_SIZE):
+            y = (ROW_SIZE + 1) * x + diagonal
+            if -1 < y < BOARD_SIZE:
+                check_range.append(y)
+                board_range.append(board[y])
+
+        if done_move in check_range:
+            if sign * NUMBER_TO_WIN in ''.join(board_range):
+                return True
     return False
 
 
