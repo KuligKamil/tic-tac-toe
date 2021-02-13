@@ -54,8 +54,19 @@ def test_is_over_row(board: List[str], done_move: int, sign: str, expected: bool
           'O', ' ', ' ', ' ',
           ' ', ' ', ' ', ' ',
           ' ', ' ', ' ', ' '],
-         1, "O", True),
-
+         0, "O", True),
+        (['O', 'O', ' ', ' ',
+          'O', ' ', ' ', ' ',
+          ' ', ' ', ' ', ' ',
+          ' ', ' ', ' ', ' ',
+          ' ', ' ', ' ', ' '],
+         1, "O", False),
+        ([' ', ' ', ' ', ' ',
+          ' ', ' ', 'O', ' ',
+          ' ', ' ', 'O', ' ',
+          ' ', ' ', 'O', ' ',
+          ' ', ' ', ' ', ' '],
+         6, "O", True),
     ]
 )
 def test_is_over_column(board: List[str], done_move: int, sign: str, expected: bool) -> None:
